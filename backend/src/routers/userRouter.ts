@@ -12,3 +12,4 @@ userRouter.put('/', authMiddleware, updateUser)         //* http://localhost:300
 userRouter.get('/bulk', authMiddleware, findUsers)     //* http://localhost:3000/api/v1/user/bulk
 
 export default userRouter
+
