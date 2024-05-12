@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { signinSchema, signupSchema } from "../types"
-import { User } from "../db";
+import { Account, User } from "../db";
 import { compareSync, hashSync } from "bcryptjs";
 import jwt from 'jsonwebtoken'
 
@@ -30,8 +30,15 @@ export const signup = async (req:Request, res:Response) => {
 
         // storing in mdb
         const hashedPassword = hashSync(password, 10);
-        await User.create({
+        const user = await User.create({
             username, firstName, lastName, password: hashedPassword
+        })
+
+        const userId = user._id;
+
+        await Account.create({
+            userId: userId,
+            balance: 1 + Math.random() * 10000
         })
 
         res.json({
