@@ -18,3 +18,8 @@ export const updateUserSchema = zod.object({
     lastName: zod.string().min(3).optional(),
     password: zod.string().min(3).optional()
 })
+
+export const transferSchema = zod.object({
+    to: zod.string().min(3),
+    amount: zod.number().min(1),
+})
