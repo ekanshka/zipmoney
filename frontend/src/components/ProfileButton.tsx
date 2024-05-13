@@ -1,7 +1,7 @@
 
 interface Iinitials {
     initials: string,
-    onClick: React.MouseEventHandler<HTMLButtonElement>
+    onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export const ProfileButton = ({initials, onClick}: Iinitials) => {
