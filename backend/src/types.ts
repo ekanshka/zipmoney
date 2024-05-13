@@ -23,3 +23,4 @@ export const transferSchema = zod.object({
     to: zod.string().min(3),
     amount: zod.number().min(1),
 })
+
