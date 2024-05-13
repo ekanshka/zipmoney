@@ -41,8 +41,11 @@ export const signup = async (req:Request, res:Response) => {
             balance: 1 + Math.random() * 10000
         })
 
-        res.json({
-            msg: "user created successfully"
+        const token = jwt.sign({userId: userId}, process.env.JWT_SECRET as string)
+
+        res.status(200).json({
+            msg: "user created successfully",
+            token: token
         })
 
         return
@@ -90,7 +93,7 @@ export const signin = async (req:Request, res:Response) => {
         const { _id } = user;
         const token = jwt.sign({userId: _id}, process.env.JWT_SECRET as string)
 
-        res.json({
+        res.status(200).json({
             msg: "signin successfull",
             token: token
         })
