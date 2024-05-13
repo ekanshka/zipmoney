@@ -35,6 +35,7 @@
         - POST "/user/signup", with assigning user with random balance under 10000 
         - POST "/user/signin", with jwt token return
     - user routes : 
+        - PUT "/user/" , fetching current user information (username, firstname, lastname)
         - PUT "/user/" , updating their information (firstname, lastname, password with encryption)
         - GET "/user/bulk", searching for users with or without filter query
     - account routes :
