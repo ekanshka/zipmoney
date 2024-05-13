@@ -14,9 +14,9 @@ const connectDB = () => {
 connectDB();
 
 const userSchema = new mongoose.Schema({
-    username: {type: String, required: true},
-    firstName: {type: String, required: true},
-    lastName: {type: String, required: true},
+    username: {type: String, required: true, trim: true},
+    firstName: {type: String, required: true, trim: true},
+    lastName: {type: String, required: true, trim: true},
     password: {type: String, required: true},
 })
 
