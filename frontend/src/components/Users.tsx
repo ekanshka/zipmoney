@@ -2,6 +2,6 @@
 
 export const Users = () => {
   return (
-    <div>Users</div>
+    <div className="w-[95%] p-3 flex justify-around place-items-center rounded-2xl border">Users</div>
   )
 }
