@@ -3,35 +3,35 @@ import { useEffect, useState } from "react";
 import { ProfileButton } from "./ProfileButton";
 import { useNavigate } from "react-router-dom";
 
+interface IUser {
+
+  username: string,
+  firstName: string,
+  lastName: string,
+  userId: string
+}
+
 export const Appbar = () => {
 
-  const [ initials, setInitials ] = useState("U");
+  const [ user, setUser ] = useState({username: "",
+    firstName: "",
+    lastName: "",
+    userId: ""});
+
+
   const navigate = useNavigate();
 
-  const getUserData = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/api/v1/user", {
+
+  useEffect(() => {
+      axios.get("http://localhost:3000/api/v1/user", {
         headers: {
           Authorization: localStorage.getItem('authorization')
         }
+      }).then((response) => {
+        setUser(response.data.user)
+      }).catch((error) => {
+        console.log(error)
       })
-      
-      const { firstName, lastName } = response.data.user;
-
-      const firstInitial = firstName[0];
-      const lastInitial = lastName[0];
-      const fullInitial = firstInitial + lastInitial;
-
-  
-      setInitials(fullInitial.toUpperCase())
-    } catch (error) {
-      console.log(error)
-      return;
-    }
-  }
-
-  useEffect(() => {
-    getUserData();
   }, [])
 
 
@@ -46,7 +46,7 @@ export const Appbar = () => {
       <h2 className="font-bold text-3xl">PayTM App</h2>
       <div className="flex justify-center place-items-center gap-5">
         <span className="font-bold text-2xl">Hello</span>
-        <ProfileButton onClick={userPage} initials={initials}/>
+        <ProfileButton onClick={userPage} user={user}/>
       </div>
     </div>
   );
