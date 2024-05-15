@@ -54,15 +54,15 @@ Some screenshots:
 
 1. Signup page
 
-![signup page](image-3.png)
+![signup page](signup.png)
 
 2. Signin page
 
-![signin page](image-2.png)
+![signin page](signin.png)
 
 3. Dashboard page
 
-![dashboard page](image-4.png)
+![dashboard page](dashboard.png)
 
 
 <!-- ## Bugs : ❌ -->

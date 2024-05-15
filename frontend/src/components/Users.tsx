@@ -1,39 +1,29 @@
 import { useEffect, useState } from "react";
 import { User } from "./User";
-import axios from "axios";
+import { useAllUsers } from "../hooks/useAllUsers";
 
-interface IUser {
-  username: string;
-  firstName: string;
-  lastName: string;
-  userId: string;
-}
 
 export const Users = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [users, setUsers] = useState<IUser[] | null>(null);
-  const [loading, setLoading] = useState(true)
+  const [fetchedUsers, setFetchedUsers] = useState<IUser[] | null>(null);
 
+  const { users, loading, fetchError} = useAllUsers(searchInput);
+
+  
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/api/v1/user/bulk/?filter=" + searchInput, {
-        headers: {
-          Authorization: localStorage.getItem("authorization"),
-        },
-      })
-      .then((response) => {
-        setTimeout(() => {                        //artificial latency to show loading screen
-          setUsers(response.data.users);
-          setLoading(false)
-        }, 500);
-      })
-      .catch((error) => {
-        if (error.response) {
-          alert(error.response.data.msg);
-        } else {
-          alert(error.message);
-        }
-      });
+    if (users) {
+      // let filteredUsers = users;
+      // if (currentUser) {
+      //   filteredUsers = users.filter(
+      //     (user) => user.userId !== currentUser.userId
+      //   );
+      // }
+      setFetchedUsers(fetchedUsers);
+      
+    }
+    if (fetchError) {
+      console.log("error searching for users")
+    }
   }, [searchInput]);
 
   return (
@@ -45,11 +35,14 @@ export const Users = () => {
         id="search"
         className="w-full bg-neutral-100 border rounded-lg px-3 py-2 shadow-sm"
         placeholder="Search users..."
+        value={searchInput}
         onChange={(e) => {
           setSearchInput(e.target.value);
         }}
       />
-      {loading ? "Loading..." : users?.map((user) => <User user={user} key={user.userId} />)}
+      {loading
+        ? "Loading..."
+        : users?.map((user) => <User user={user} key={user.userId} />)}
     </div>
   );
 };
