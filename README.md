@@ -5,9 +5,9 @@
 ### Backend : Render -> https://week-3-todo-app-mern.onrender.com/todos -->
 
 ## Tech Stack : 💻
-#### - Backend -> TypeScript, Express, JWT 
-#### - Database -> MongoDB, Mongoose
-#### - Frontend -> TypeScript, React, Tailwind
+#### Backend -> TypeScript, Express, JWT 
+#### Database -> MongoDB, Mongoose
+#### Frontend -> TypeScript, React, Tailwind
 
 
 <!-- ## Tests Done (POSTMAN and FRONTEND) : ✅ 👍 -->
