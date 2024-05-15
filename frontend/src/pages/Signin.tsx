@@ -27,7 +27,6 @@ export const Signin = () => {
           const token = response.data.token;
           localStorage.setItem("authorization", `Bearer ${token}`);
           navigate('/dashboard')
-          alert("successfully signed in");
           return;
         }
 
@@ -37,8 +36,16 @@ export const Signin = () => {
         }
       })
       .catch((error) => {
-        alert(error.message);
-        return;
+        if (error.response) {
+          alert(error.response.data.msg);
+          console.log('res')
+        }else if (error.request) {
+          alert(error.message);
+          console.log('req')
+        } else {
+          alert(error.message)                //some other error
+          return
+        }
       });
   };
 

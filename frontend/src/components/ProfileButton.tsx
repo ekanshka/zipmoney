@@ -25,6 +25,6 @@ export const ProfileButton = ({user, onClick}: Iprops) => {
 
 
   return (
-    <button className="bg-slate-950 text-white text-center text-lg p-3 h-12 w-12 rounded-full" onClick={onClick}>{initials}</button>
+    <button className="bg-slate-950 text-white flex justify-center place-items-center text-sm md:text-lg p-3 h-10 w-10 md:h-12 md:w-12 rounded-full shadow-md" onClick={onClick}>{initials}</button>
   )
 }

@@ -29,7 +29,6 @@ export const Signup = () => {
           const token = response.data.token;
           localStorage.setItem("authorization", `Bearer ${token}`);
           navigate("/dashboard");
-          alert("successfully signed in");
           return;
         }
     })

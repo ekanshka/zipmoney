@@ -63,7 +63,7 @@ export const signin = async (req:Request, res:Response) => {
     const { success } = signinSchema.safeParse(req.body);
 
     if (!success) {
-        res.status(400).json({ msg: "incorrect inputs "});
+        res.status(400).json({ msg: "incorrect inputs"});
         return;
     }
 

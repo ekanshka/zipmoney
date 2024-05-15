@@ -21,15 +21,15 @@ export const User = ({user}: IUser) => {
   }
 
   return (
-    <div className="flex justify-between place-items-center w-full border rounded-lg px-3 py-2">
+    <div className="flex justify-between place-items-center w-full rounded-lg border shadow-sm md:px-10 py-5 px-4">
       <div className="flex justify-center place-items-center gap-2">
         <ProfileButton user={user}/>
-        <span className="">{user.firstName}</span>
-        <span className="">{user.lastName}</span>
+        <span className=" md:text-lg">{user.firstName}</span>
+        <span className=" md:text-lg">{user.lastName}</span>
       </div>
 
       <div className="">
-        <button className="bg-slate-950 text-white py-2 px-3 rounded-lg" onClick={handleSend}>Send Money</button>
+        <button className="bg-slate-950 text-white py-2 px-3 rounded-lg shadow-lg md:text-lg text-sm" onClick={handleSend}>Send Money</button>
       </div>
     </div>
   )
