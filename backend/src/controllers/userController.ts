@@ -53,11 +53,11 @@ export const getUser = async (req: Request, res: Response) => {
       return;
     }
 
-    const {username, firstName, lastName} = user;
+    const {username, firstName, lastName, _id} = user;
 
     res.json({
       user : {
-        username, firstName, lastName
+        username, firstName, lastName, userId: _id
       }
     });
 

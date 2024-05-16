@@ -21,7 +21,7 @@ export const User = ({user}: IUser) => {
   }
 
   return (
-    <div className="flex justify-between place-items-center w-full rounded-lg border shadow-sm md:px-10 py-5 px-4">
+    <div className="flex justify-between place-items-center w-full rounded-lg border shadow-sm md:px-10 py-5 px-4 ">
       <div className="flex justify-center place-items-center gap-2">
         <ProfileButton user={user}/>
         <span className=" md:text-lg">{user.firstName}</span>

@@ -32,7 +32,7 @@ export const Balance = () => {
   useEffect
 
   return (
-    <div className="w-[95%] p-5 rounded-2xl border font-semibold shadow-sm md:text-lg">
+    <div className="w-[95%] p-5 rounded-2xl border font-semibold shadow-sm md:text-lg ">
       <span className="text-lg md:text-xl">Your Balance </span>
       <span className="ml-4">Rs. {balance}</span>
     </div>

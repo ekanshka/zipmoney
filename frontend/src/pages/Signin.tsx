@@ -71,7 +71,7 @@ export const Signin = () => {
           placeholder="123"
           onChange={handleChange}
         />
-        <Button text="Signin" onClick={handleSubmit} />
+        <Button onClick={handleSubmit} >Signin</Button>
         <BottomWarning
           text="Don't have an account yet?"
           linkText="Sign up"

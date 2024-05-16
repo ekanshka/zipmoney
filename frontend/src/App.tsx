@@ -3,7 +3,7 @@ import { Signup } from "./pages/Signup";
 import { Signin } from "./pages/Signin";
 import { Dashboard } from "./pages/Dashboard";
 import { Send } from "./pages/Send";
-import { User } from "./components/User";
+import { User } from "./pages/User";
 
 export default function App() {
   return (

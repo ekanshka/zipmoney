@@ -1,33 +1,31 @@
 import { useEffect, useState } from "react";
 import { User } from "./User";
 import { useAllUsers } from "../hooks/useAllUsers";
+import { useCurrentUser } from "../hooks/useCurrentUser";
 
 
 export const Users = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [fetchedUsers, setFetchedUsers] = useState<IUser[] | null>(null);
+  const [users, setUsers] = useState<IUser[] | null>(null);
 
-  const { users, loading, fetchError} = useAllUsers(searchInput);
-
+  const { fetchedUsers, loading, fetchError} = useAllUsers(searchInput);
+  const currentUser = useCurrentUser();
+  
   
   useEffect(() => {
-    if (users) {
-      // let filteredUsers = users;
-      // if (currentUser) {
-      //   filteredUsers = users.filter(
-      //     (user) => user.userId !== currentUser.userId
-      //   );
-      // }
-      setFetchedUsers(fetchedUsers);
+    if (fetchedUsers) {
+      const filteredUsers = fetchedUsers.filter(user => user.userId !== currentUser.userId);
+      setUsers(filteredUsers)
       
     }
     if (fetchError) {
+      alert(fetchError)
       console.log("error searching for users")
     }
-  }, [searchInput]);
+  }, [fetchedUsers, fetchError, currentUser]);
 
   return (
-    <div className="w-[95%] p-5 flex flex-col gap-5 justify-around place-items-center rounded-2xl border shadow-md">
+    <div className="w-[95%] p-5 flex flex-col gap-5 justify-around place-items-center rounded-2xl border shadow-md ">
       <div className="border-b p-2 rounded-md w-full px-4 text-2xl font-semibold">
         Users
       </div>
@@ -46,3 +44,9 @@ export const Users = () => {
     </div>
   );
 };
+
+
+// useAllUsers returns new users based on the search results
+// useEffect is dependent on users so it updates after the new users arrive
+// it updates the users after filtering the current user
+// setUser is called inside it with filtered users

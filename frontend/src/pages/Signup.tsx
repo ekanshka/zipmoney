@@ -80,7 +80,7 @@ export const Signup = () => {
           placeholder="123"
           onChange={handleChange}
         />
-        <Button text="Signup" onClick={handleSubmit} />
+        <Button onClick={handleSubmit} >Signup</Button>
         <BottomWarning
           text="Already have an account?"
           linkText="Sign in"

@@ -1,12 +1,12 @@
 
 
 interface IButton {
-    text: string,
-    onClick: React.MouseEventHandler<HTMLButtonElement>
+    children: React.ReactNode
+    onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export const Button = ({text, onClick}: IButton) => {
+export const Button = ({children, onClick}: IButton) => {
   return (
-    <button className="bg-slate-950 text-white p-3 rounded-lg" onClick={onClick}>{text}</button>
+    <button className="bg-slate-950 text-white p-3 rounded-lg" onClick={onClick}>{children}</button>
   )
 }

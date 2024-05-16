@@ -34,7 +34,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export const useAllUsers = (searchInput: string) => {
-  const [users, setUsers] = useState<IUser[] | null>(null);
+  const [fetchedUsers, setFetchedUsers] = useState<IUser[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
 
@@ -48,7 +48,7 @@ export const useAllUsers = (searchInput: string) => {
       })
       .then((response) => {
         setFetchError(null);
-        setUsers(response.data.users);
+        setFetchedUsers(response.data.users);
         setLoading(false);
       })
       .catch((error) => {
@@ -61,5 +61,5 @@ export const useAllUsers = (searchInput: string) => {
       });
   }, [searchInput]);
 
-  return { users, loading, fetchError };
+  return { fetchedUsers, loading, fetchError };
 };
