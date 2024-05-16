@@ -1,6 +1,7 @@
 import { ProfileButton } from "./ProfileButton";
 import { useNavigate } from "react-router-dom";
 import { useCurrentUser } from "../hooks/useCurrentUser";
+import { DangerButton } from "./DangerButton";
 
 
 
@@ -29,7 +30,7 @@ export const Appbar = () => {
       <div className="flex justify-center place-items-center gap-5">
         <span className="font-bold text-xl md:text-2xl hidden sm:block">Hello</span>
         <ProfileButton onClick={userPage} user={currentUser}/>
-        <button className="bg-red-700 shadow-md text-white px-3 py-2 rounded-xl text-sm sm:text-base md:text-lg" onClick={handleLogout}>LogOut</button>
+        <DangerButton onClick={handleLogout}>LogOut</DangerButton>
       </div>
     </div>
   );
