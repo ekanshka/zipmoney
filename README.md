@@ -84,7 +84,9 @@ Some screenshots:
 
 
 ## Bugs : ❌
-- search feature works but is case sensitive [fix would require a little structural change with mongo schema and stuff]
+- UX related: 
+    - search feature works but is case sensitive [fix would require a little structural change with mongo schema and stuff]
+    - landing on any random page does not redirect to a working url ex the root url
 
 
 <!-- ## Run : 🚀 -->
