@@ -62,25 +62,25 @@ Some screenshots:
 
 1. Signup page
 
-![Signup Page](signup-page.png)
+![Signup Page](public/signup-page.png)
 
 
 2. Signin page
 
-![Signin Page](signin-page.png)
+![Signin Page](public/signin-page.png)
 
 
 3. Dashboard page
 
-![Dashboard Page](dashboard-page.png)
+![Dashboard Page](public/dashboard-page.png)
 
 4. User Page
 
-![User Page](user-page.png)
+![User Page](public/user-page.png)
 
 5. Send Page
 
-![Send Page](send-page.png)
+![Send Page](public/send-page.png)
 
 
 ## Bugs : ❌
