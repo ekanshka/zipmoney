@@ -10,12 +10,6 @@ app.use(express.json());
 // http://localhost:3000/api/v1/
 app.use("/api/v1", mainRouter);
 
-const server = app.listen(0, () => {
-  const address = server.address();
-
-  if (address && typeof address !== "string") {
-    console.log(`App is listening on port ${address.port}`);
-  } else {
-    console.log("App is listening on a UNIX domain socket");
-  }
-});
+app.listen(3000, () => {
+  console.log('app is listening on port 3000');
+})
