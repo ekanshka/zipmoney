@@ -1,8 +1,8 @@
 # Project to build a simple PayTM like App
 
-<!-- ## Deployed Live on 🚀: -->
-<!-- ### Frontend : Vercel -> https://week-3-todo-app-mern.vercel.app/
-### Backend : Render -> https://week-3-todo-app-mern.onrender.com/todos -->
+## Deployed Live on 🚀:
+### Frontend : Vercel -> https://week-4-paytm-mern.vercel.app/signin
+### Backend : Render -> https://week-4-paytm-mern.onrender.com/api/v1/user
 
 ## Tech Stack : 💻
 #### Backend -> TypeScript, Express, JWT 
