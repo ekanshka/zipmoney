@@ -13,7 +13,7 @@ export const useCurrentUser = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/v1/user", {
+      .get("https://week-4-paytm-mern.onrender.com/api/v1/user", {
         headers: {
           Authorization: localStorage.getItem("authorization"),
         },

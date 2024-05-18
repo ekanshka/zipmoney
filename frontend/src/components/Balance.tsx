@@ -8,7 +8,7 @@ export const Balance = () => {
 
   const getBalance = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/v1/account/balance", {
+      const response = await axios.get("https://week-4-paytm-mern.onrender.com/api/v1/account/balance", {
         headers: {
           Authorization: localStorage.getItem("authorization")
         }

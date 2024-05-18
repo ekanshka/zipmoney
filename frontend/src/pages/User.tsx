@@ -26,7 +26,7 @@ export const User = () => {
 
   const handleUpdateDetails = () => {
     // send form as body of put req to backend update api and alert for success or fail
-    axios.put("http://localhost:3000/api/v1/user/", form, {
+    axios.put("https://week-4-paytm-mern.onrender.com/api/v1/user/", form, {
       headers: {
         Authorization: localStorage.getItem('authorization')
       }
@@ -59,7 +59,7 @@ export const User = () => {
   };
 
   const deleteAccount = () => {
-    axios.post("http://localhost:3000/api/v1/user/", {} , {
+    axios.post("https://week-4-paytm-mern.onrender.com/api/v1/user/", {} , {
       headers: {
         Authorization: localStorage.getItem('authorization')
       }

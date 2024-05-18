@@ -35,7 +35,7 @@ export const SendComp = ({toUserId, toFirstName, toLastName}: ISendProps) => {
   }
 
   function handleSubmit() {
-    axios.post("http://localhost:3000/api/v1/account/transfer", {
+    axios.post("https://week-4-paytm-mern.onrender.com/api/v1/account/transfer", {
       to: toUserId,
       amount: amount
     },{

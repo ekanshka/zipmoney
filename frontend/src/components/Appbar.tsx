@@ -2,14 +2,13 @@ import { ProfileButton } from "./ProfileButton";
 import { Link, useNavigate } from "react-router-dom";
 import { useCurrentUser } from "../hooks/useCurrentUser";
 import { DangerButton } from "./DangerButton";
-import { FaGithub } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io";
 
 
 
 export const Appbar = () => {
 
-  const {currentUser, fetchError} = useCurrentUser();
+  const {currentUser} = useCurrentUser();
 
   
 
@@ -29,7 +28,6 @@ export const Appbar = () => {
   }
   
   return (
-    // title    hello user-initials-button
      
     <nav className="w-[95%] md:px-10 px-7 py-3 flex justify-between place-items-center border-2 rounded-2xl shadow-md border-slate-600 ">
       <h2 className="font-bold text-xl md:text-3xl cursor-pointer" onClick={redirectDashboard}>PayTM </h2>
