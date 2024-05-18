@@ -32,9 +32,9 @@ export const Balance = () => {
   useEffect
 
   return (
-    <div className="w-[95%] p-5 rounded-2xl border font-semibold shadow-sm md:text-lg ">
-      <span className="text-lg md:text-xl">Your Balance </span>
-      <span className="ml-4">Rs. {balance}</span>
-    </div>
+    <section className="w-[95%] p-5 rounded-2xl border font-semibold shadow-sm text-sm sm:text-base md:text-lg flex flex-col md:flex-row justify-start items-start">
+      <span className="text-base md:text-lg">Your Balance </span>
+      <span className="text-base md:text-lg md:ml-4">Rs. {balance}</span>
+    </section>
   )
 }

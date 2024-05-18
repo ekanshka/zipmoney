@@ -7,6 +7,6 @@ interface IButton {
 
 export const Button = ({children, onClick}: IButton) => {
   return (
-    <button className="bg-slate-950 shadow-md text-white px-3 py-2 rounded-lg text-sm sm:text-base md:text-lg" onClick={onClick}>{children}</button>
+    <button className="bg-slate-950 shadow-md text-white px-3 py-2 rounded-lg text-xs sm:text-base md:text-lg hover:bg-slate-950 ease-in duration-300 hover:scale-105" onClick={onClick}>{children}</button>
   )
 }

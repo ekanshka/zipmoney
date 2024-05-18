@@ -5,6 +5,6 @@ interface Itext {
 
 export const Heading = ({text}: Itext) => {
   return (
-    <h2 className="text-5xl font-bold text-slate-950 text-center">{text}</h2>
+    <h2 className="font-bold text-slate-950 text-center text-3xl sm:text-4xl md:text-5xl">{text}</h2>
   )
 }

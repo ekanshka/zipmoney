@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { updateUserSchema} from "../types";
-import { User } from "../db";
+import { Account, User } from "../db";
 import { hashSync } from "bcryptjs";
 
 export const updateUser = async (req: Request, res: Response) => {
@@ -104,3 +104,29 @@ export const findUsers = async (req: Request, res: Response) => {
     return;
   }
 };
+
+
+export const deleteUser = async (req: Request, res: Response) => {
+
+  try {
+    const user = await User.findByIdAndDelete(res.locals.userId);
+    
+    const account = await Account.findOneAndDelete({userId: res.locals.userId});
+
+    if (user && account) {
+      res.status(200).json({
+        msg: "account deleted successfully"
+      })
+    } else {
+      res.status(403).json({
+        msg: "no user or account connected to user found"
+      })
+    }
+
+  } catch (error) {
+    console.log("im the error u see at deleting account", error)
+    res.json({
+      msg: "something went wrong"
+    })
+  }
+}

@@ -9,9 +9,9 @@ interface Itext {
 
 export const BottomWarning = ({text, linkText, onClick}: Itext) => {
   return (
-    <div className="text-slate-950 text-center">
+    <div className="text-slate-950 text-center text-sm sm:text-base md:text-lg">
         {text}
-        <span onClick={onClick} className="ml-1 underline font-semibold cursor-pointer">{linkText}</span>
+        <span onClick={onClick} className="ml-1 underline font-semibold cursor-pointer ">{linkText}</span>
     </div>
   )
 }

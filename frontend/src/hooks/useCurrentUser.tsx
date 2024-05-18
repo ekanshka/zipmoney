@@ -1,13 +1,15 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 
 export const useCurrentUser = () => {
-  const [user, setUser] = useState({
+  const [currentUser, setCurrentUser] = useState({
     username: "",
     firstName: "",
     lastName: "",
     userId: "",
   });
+
+  const [fetchError, setFetchError] = useState<AxiosError>()
 
   useEffect(() => {
     axios
@@ -17,12 +19,16 @@ export const useCurrentUser = () => {
         },
       })
       .then((response) => {
-        setUser(response.data.user);
+        setCurrentUser(response.data.user);
       })
       .catch((error) => {
-        console.log(error);
+        if (error.response) {
+          setFetchError(error.response.data.msg);
+        } else {
+          setFetchError(error.message)
+        }
       });
   }, []);
-
-  return user;
+  // console.log(fetchError)
+  return {currentUser, fetchError};
 };
