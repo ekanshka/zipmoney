@@ -58,7 +58,7 @@
         - "/user" , allows users to see their username(email), userid, and editable firstname, lastname fields to update their information. Also allows a delete account option
         - "/send", to transfer money to a another user
 
-Some screenshots:
+## Some screenshots: 📷
 
 1. Signup page
 
