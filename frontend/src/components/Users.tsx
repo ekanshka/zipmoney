@@ -36,7 +36,7 @@ export const Users = () => {
       <input
         id="search"
         className="w-full bg-neutral-100 border rounded-lg px-3 py-2 shadow-sm text-sm sm:text-base md:text-lg"
-        placeholder="Search users..."
+        placeholder="Search users... (case sensitive)"
         value={searchInput}
         onChange={(e) => {
           setSearchInput(e.target.value);

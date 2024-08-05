@@ -30,7 +30,7 @@ export const Appbar = () => {
   return (
      
     <nav className="w-[95%] md:px-10 px-7 py-3 flex justify-between place-items-center border-2 rounded-2xl shadow-md border-slate-600 ">
-      <h2 className="font-bold text-xl md:text-3xl cursor-pointer" onClick={redirectDashboard}>PayTM </h2>
+      <h2 className="font-bold text-xl md:text-3xl cursor-pointer" onClick={redirectDashboard}>ZipMoney</h2>
       <div className="flex justify-center place-items-center md:gap-5 gap-2">
         <Link to='https://github.com/ekanshka/week-4-paytm-mern' target="_blank">
           <IoLogoGithub size={30} className="cursor-pointer"/>
