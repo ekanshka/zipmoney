@@ -43,7 +43,7 @@ export const Users = () => {
         }}
       />
       {loading
-        ? "Loading..."
+        ? "Loading...(can take a min due to cold startup)"
         : users?.map((user) => <User user={user} key={user.userId} />)}
     </section>
   );
