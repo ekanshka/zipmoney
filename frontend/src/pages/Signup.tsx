@@ -16,38 +16,35 @@ export const Signup = () => {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
   const handleSubmit = () => {
+    setLoading(true)
     axios
       .post("https://week-4-paytm-mern.onrender.com/api/v1/user/signup", formData)
-      .then(async (response) => {
-        if (response.status == 200) {
+      .then((response) => {
           const token = response.data.token;
           localStorage.setItem("authorization", `Bearer ${token}`);
-          navigate("/dashboard");
-          return;
-        }
-    })
-    .catch((error) => {
-        if (error.response) {                   //there was a response but with bad status code
-            alert(error.response.data.msg);
-            return
-        } else if (error.request) {             //request was made but no response (ex network error)
-            alert(error.message);
-            return;
+          setLoading(false)
+          navigate('/dashboard')
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.msg);
+          setLoading(false)
         } else {
-            alert(error.message)                //some other error
-            return
+          alert(error.message)    
+          setLoading(false)           
         }
       });
   };
 
   const handleSigninRedirect = () => {
-    navigate("/Signin");
+    navigate("/signin");
   };
 
   return (
@@ -80,7 +77,7 @@ export const Signup = () => {
           placeholder="123"
           onChange={handleChange}
         />
-        <Button onClick={handleSubmit} >Signup</Button>
+        <Button onClick={handleSubmit} loading={loading}>Signup</Button>
         <BottomWarning
           text="Already have an account?"
           linkText="Sign in"

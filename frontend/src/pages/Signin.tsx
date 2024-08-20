@@ -15,42 +15,35 @@ export const Signin = () => {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false)
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
   const handleSubmit = () => {
+    setLoading(true)
     axios
       .post("https://week-4-paytm-mern.onrender.com/api/v1/user/signin", formData)
-      .then(async (response) => {
-        if (response.status == 200) {
+      .then((response) => {
           const token = response.data.token;
           localStorage.setItem("authorization", `Bearer ${token}`);
+          setLoading(false)
           navigate('/dashboard')
-          return;
-        }
-
-        if (response.status != 200) {
-          alert(response.data.msg);
-          return;
-        }
       })
       .catch((error) => {
         if (error.response) {
           alert(error.response.data.msg);
-          console.log('res')
-        }else if (error.request) {
-          alert(error.message);
-          console.log('req')
+          setLoading(false)
         } else {
-          alert(error.message)                //some other error
-          return
+          alert(error.message)    
+          setLoading(false)           
         }
       });
   };
 
   const handleSignupRedirect = () => {
-    navigate("/Signup");
+    navigate("/signup");
   };
 
   return (
@@ -71,7 +64,7 @@ export const Signin = () => {
           placeholder="123"
           onChange={handleChange}
         />
-        <Button onClick={handleSubmit} >Signin</Button>
+        <Button onClick={handleSubmit} loading={loading}>Signin</Button>
         <BottomWarning
           text="Don't have an account yet?"
           linkText="Sign up"
