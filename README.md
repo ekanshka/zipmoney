@@ -1,7 +1,7 @@
 # Project to build a simple PayTM like App
 
 ## Deployed Live on 🚀:
-### Frontend : Vercel -> https://week-4-paytm-mern.vercel.app/signin
+### Frontend : Vercel -> https://zipmoney.vercel.app/signin
 ### Backend : Render -> https://week-4-paytm-mern.onrender.com/api/v1/user
 
 ## Tech Stack : 💻

@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom"
 import { Appbar } from "../components/Appbar"
-import { SendComp } from "../components/SendComp";
+import { SendComp } from "../components/ui/SendComp";
 
 
 export const Send = () => {

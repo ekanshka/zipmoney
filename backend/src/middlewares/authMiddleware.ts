@@ -21,7 +21,6 @@ export const authMiddleware = (req:Request, res:Response, next:NextFunction) => 
         return;
     }
 
-
     // verify token and call next if not then return
     try {
         const verified = <JwtPayload>jwt.verify(token, process.env.JWT_SECRET as string);
@@ -42,8 +41,5 @@ export const authMiddleware = (req:Request, res:Response, next:NextFunction) => 
         })
         return;
     }
-
-
-
 
 }

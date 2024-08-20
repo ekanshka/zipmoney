@@ -17,7 +17,8 @@ export const SendComp = ({toUserId, toFirstName, toLastName}: ISendProps) => {
 
   const navigate = useNavigate()
   const [initials, setInitials] = useState("")
-  const [amount, setAmount] = useState<Number | null>(null)
+  const [amount, setAmount] = useState<number | null>(null)
+  const [loading, setLoading] = useState(false)
   
   useEffect(() => {
     if (toFirstName && toLastName) {
@@ -35,6 +36,7 @@ export const SendComp = ({toUserId, toFirstName, toLastName}: ISendProps) => {
   }
 
   function handleSubmit() {
+    setLoading(true)
     axios.post("https://week-4-paytm-mern.onrender.com/api/v1/account/transfer", {
       to: toUserId,
       amount: amount
@@ -44,12 +46,15 @@ export const SendComp = ({toUserId, toFirstName, toLastName}: ISendProps) => {
       }
     }).then((response) => {
       alert(response.data.msg)
+      setLoading(false)
       navigate('/dashboard')
     }).catch((error) => {
       if (error.response) {
         alert(error.response.data.msg)
+        setLoading(false)
       } else {
         alert(error.message)
+        setLoading(false)
       }
     })
     
@@ -66,7 +71,7 @@ export const SendComp = ({toUserId, toFirstName, toLastName}: ISendProps) => {
           <SubHeading text={toFirstName +" " + toLastName} />
         </div>
         <InputBox id="amount" label="Amount :"  placeholder="Rupees" type="number" onChange={handleChange}/>
-        <Button onClick={handleSubmit}>Send</Button>
+        <Button onClick={handleSubmit} loading={loading}>Send</Button>
 
     </div>
   )

@@ -1,5 +1,5 @@
-import { DangerButton } from "./DangerButton"
-import { NormalButton } from "./NormalButton"
+import { DangerButton } from "./ui/DangerButton"
+import { NormalButton } from "./ui/NormalButton"
 
 interface IDialogProps {
     handleYes: React.MouseEventHandler<HTMLButtonElement>,

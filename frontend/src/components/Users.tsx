@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { User } from "./User";
 import { useAllUsers } from "../hooks/useAllUsers";
@@ -9,12 +8,14 @@ export const Users = () => {
   const [users, setUsers] = useState<IUser[] | null>(null);
 
   const { fetchedUsers, loading, fetchError } = useAllUsers(searchInput);
-  const {currentUser} = useCurrentUser();
+  const { currentUser } = useCurrentUser();
 
   useEffect(() => {
     if (fetchedUsers && currentUser) {
-      const filteredUsers = fetchedUsers.filter(user => user.userId !== currentUser.userId);
-      setUsers(prevUsers => {
+      const filteredUsers = fetchedUsers.filter(
+        (user) => user.userId !== currentUser.userId
+      );
+      setUsers((prevUsers) => {
         // Only update if the filtered users are different from the previous state
         if (JSON.stringify(prevUsers) !== JSON.stringify(filteredUsers)) {
           return filteredUsers;
@@ -24,7 +25,6 @@ export const Users = () => {
     }
     if (fetchError) {
       alert(fetchError);
-      console.log("error searching for users");
     }
   }, [fetchedUsers, fetchError, currentUser]);
 

@@ -22,7 +22,9 @@ export const useAllUsers = (searchInput: string) => {
       })
       .catch((error) => {
         if (error.response) {
-          setFetchError(error.response.data.msg);
+          if ((error.response.status !== 401) && (error.response.status !== 403)) {
+            setFetchError(error.response.data.msg);
+          }
         } else {
           setFetchError(error.message);
         }

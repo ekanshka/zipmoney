@@ -4,6 +4,7 @@ import { Signin } from "./pages/Signin";
 import { Dashboard } from "./pages/Dashboard";
 import { Send } from "./pages/Send";
 import { User } from "./pages/User";
+import { NotFound } from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/user" element={<User />} />
       <Route path="/send" element={<Send />} />
+      <Route path="/*" element={<NotFound />} />
     </Routes>
   );
 }

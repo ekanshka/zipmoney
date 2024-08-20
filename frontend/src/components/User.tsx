@@ -1,7 +1,8 @@
 
 import { useNavigate } from "react-router-dom"
-import { ProfileButton } from "./ProfileButton"
-import { Button } from "./Button"
+import { ProfileButton } from "./ui/ProfileButton"
+import { Button } from "./ui/Button"
+import { useState } from "react"
 
 interface IUser {
   user: {
@@ -15,9 +16,12 @@ interface IUser {
 export const User = ({user}: IUser) => {
 
   const navigate = useNavigate()
+  const [loading, setLoading ] = useState(false)
 
   const handleSend = () => {
+    setLoading(true)
     navigate(`/send/?userId=${user.userId}&firstName=${user.firstName}&lastName=${user.lastName}`)
+    setLoading(false)
   }
 
   return (
@@ -28,7 +32,7 @@ export const User = ({user}: IUser) => {
         <span className=" md:text-lg">{user.lastName}</span>
       </div>
 
-      <Button onClick={handleSend}>Pay</Button>
+      <Button onClick={handleSend} loading={loading}>Pay</Button>
     </div>
   )
 }

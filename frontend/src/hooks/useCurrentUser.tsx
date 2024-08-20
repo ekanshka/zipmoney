@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 export const useCurrentUser = () => {
@@ -9,7 +9,7 @@ export const useCurrentUser = () => {
     userId: "",
   });
 
-  const [fetchError, setFetchError] = useState<AxiosError>()
+  const [fetchError, setFetchError] = useState<string | null>()
 
   useEffect(() => {
     axios
@@ -19,11 +19,14 @@ export const useCurrentUser = () => {
         },
       })
       .then((response) => {
+        setFetchError(null)
         setCurrentUser(response.data.user);
       })
       .catch((error) => {
         if (error.response) {
-          setFetchError(error.response.data.msg);
+          if ((error.response.status !== 401) && (error.response.status !== 403)) {
+            setFetchError(error.response.data.msg);
+          }
         } else {
           setFetchError(error.message)
         }

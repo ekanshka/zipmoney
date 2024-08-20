@@ -1,7 +1,7 @@
-import { ProfileButton } from "./ProfileButton";
+import { ProfileButton } from "./ui/ProfileButton";
 import { Link, useNavigate } from "react-router-dom";
 import { useCurrentUser } from "../hooks/useCurrentUser";
-import { DangerButton } from "./DangerButton";
+import { DangerButton } from "./ui/DangerButton";
 import { IoLogoGithub } from "react-icons/io";
 
 
@@ -9,8 +9,6 @@ import { IoLogoGithub } from "react-icons/io";
 export const Appbar = () => {
 
   const {currentUser} = useCurrentUser();
-
-  
 
   const navigate = useNavigate();
 
